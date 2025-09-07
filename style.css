@@ -1,0 +1,63 @@
+
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #222;
+  color: white;
+}
+
+#gameArea {
+  margin: 20px auto;
+  width: 600px;
+  height: 300px;
+  border: 3px solid white;
+  position: relative;
+  background-image: url("laurafondoo.jpeg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+#player {
+  width: 65px;
+  height: 65px;
+  background-image: url("lauraa.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  border-radius: 6px;
+}
+
+.obstacle {
+  width: 70px;
+  height: 70px;
+  background-image: url("aranha.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#controls {
+  margin-top: 20px;
+}
+
+#controls button {
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  margin: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px black;
+}
+
+#controls button:active {
+  background: #999;
+}
