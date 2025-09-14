@@ -74,12 +74,12 @@ document.addEventListener("keydown", (e) => {
 });
 
 function moveLeft() {
-  if (playerX > 0) playerX -= 40;
+  if (playerX > 0) playerX -= 30;
   player.style.left = playerX + "px";
 }
 
 function moveRight() {
-  if (playerX < 535) playerX += 40;
+  if (playerX < 535) playerX += 30;
   player.style.left = playerX + "px";
 }
 
@@ -88,20 +88,20 @@ function jump() {
   jumping = true;
   let jumpHeight = 0;
   const up = setInterval(() => {
-    if (jumpHeight >= 180) {
+    if (jumpHeight >= 220) {
       clearInterval(up);
       const down = setInterval(() => {
         if (jumpHeight <= 0) {
           clearInterval(down);
           jumping = false;
         }
-        jumpHeight -= 15;
+        jumpHeight -= 10;
         player.style.bottom = jumpHeight + "px";
-      }, 20);
+      }, 25);
     }
-    jumpHeight += 15;
+    jumpHeight += 10;
     player.style.bottom = jumpHeight + "px";
-  }, 20);
+  }, 25);
 }
 
 // Eliminar obstáculos existentes
@@ -124,7 +124,7 @@ function createObstacle() {
       obstacle.remove();
       return;
     }
-    obstacleX += 13;
+    obstacleX += 10;
     obstacle.style.right = obstacleX + "px";
 
     // Colisión
