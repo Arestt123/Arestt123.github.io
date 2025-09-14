@@ -16,7 +16,7 @@ let jumping = false;
 let score = 0;
 let gameOver = false;
 let scores = [];
-let obstacleInterval = null;
+let obstacleIntervals = [];
 
 // Mostrar menú de inicio
 function showMenu() {
@@ -104,10 +104,13 @@ function jump() {
   }, 25);
 }
 
-// Eliminar obstáculos existentes
+
 function removeObstacles() {
   document.querySelectorAll(".obstacle").forEach(o => o.remove());
+  obstacleIntervals.forEach(id => clearInterval(id)); // Detén todos los intervalos
+  obstacleIntervals = [];
 }
+
 
 // Crear obstáculos
 function createObstacle() {
@@ -138,6 +141,7 @@ function createObstacle() {
       clearInterval(move);
       gameOver = true;
       scores.push(score);
+      removeObstacles();
       setTimeout(() => {
         showMenu();
         alert("💀 ¡Game Over! Tu puntuación: " + score);
@@ -153,6 +157,8 @@ function createObstacle() {
       scoreElement.textContent = score;
     }
   }, 20);
+
+  obstacleIntervals.push(move);
 
   // Crear el siguiente obstáculo
   setTimeout(createObstacle, 3000 + Math.random() * 3000);
