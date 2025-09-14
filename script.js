@@ -16,7 +16,7 @@ let jumping = false;
 let score = 0;
 let gameOver = false;
 let scores = [];
-let obstacleIntervals = [];
+let obstacleInterval = null;
 
 // Mostrar menú de inicio
 function showMenu() {
@@ -74,12 +74,12 @@ document.addEventListener("keydown", (e) => {
 });
 
 function moveLeft() {
-  if (playerX > 0) playerX -= 30;
+  if (playerX > 0) playerX -= 40;
   player.style.left = playerX + "px";
 }
 
 function moveRight() {
-  if (playerX < 535) playerX += 30;
+  if (playerX < 535) playerX += 40;
   player.style.left = playerX + "px";
 }
 
@@ -88,29 +88,26 @@ function jump() {
   jumping = true;
   let jumpHeight = 0;
   const up = setInterval(() => {
-    if (jumpHeight >= 220) {
+    if (jumpHeight >= 180) {
       clearInterval(up);
       const down = setInterval(() => {
         if (jumpHeight <= 0) {
           clearInterval(down);
           jumping = false;
         }
-        jumpHeight -= 10;
+        jumpHeight -= 15;
         player.style.bottom = jumpHeight + "px";
-      }, 25);
+      }, 20);
     }
-    jumpHeight += 10;
+    jumpHeight += 15;
     player.style.bottom = jumpHeight + "px";
-  }, 25);
+  }, 20);
 }
 
-
+// Eliminar obstáculos existentes
 function removeObstacles() {
   document.querySelectorAll(".obstacle").forEach(o => o.remove());
-  obstacleIntervals.forEach(id => clearInterval(id)); // Detén todos los intervalos
-  obstacleIntervals = [];
 }
-
 
 // Crear obstáculos
 function createObstacle() {
@@ -127,7 +124,7 @@ function createObstacle() {
       obstacle.remove();
       return;
     }
-    obstacleX += 10;
+    obstacleX += 13;
     obstacle.style.right = obstacleX + "px";
 
     // Colisión
@@ -141,7 +138,6 @@ function createObstacle() {
       clearInterval(move);
       gameOver = true;
       scores.push(score);
-      removeObstacles();
       setTimeout(() => {
         showMenu();
         alert("💀 ¡Game Over! Tu puntuación: " + score);
@@ -157,8 +153,6 @@ function createObstacle() {
       scoreElement.textContent = score;
     }
   }, 20);
-
-  obstacleIntervals.push(move);
 
   // Crear el siguiente obstáculo
   setTimeout(createObstacle, 3000 + Math.random() * 3000);
