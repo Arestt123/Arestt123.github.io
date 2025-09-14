@@ -6,13 +6,21 @@ body {
   color: white;
 }
 
+.menu-img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #000;
+}
+
 #gameArea {
   margin: 20px auto;
   width: 600px;
   height: 300px;
   border: 3px solid white;
   position: relative;
-  background-image: url("laurafondoo.jpeg");
+  background-image: url("fondo.jpeg");
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -21,7 +29,7 @@ body {
 #player {
   width: 65px;
   height: 65px;
-  background-image: url("lauraa.jpg");
+  background-image: url("aress.png");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -33,7 +41,7 @@ body {
 .obstacle {
   width: 70px;
   height: 70px;
-  background-image: url("aranha.jpg");
+  background-image: url("tombo.png");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -61,3 +69,4 @@ body {
 #controls button:active {
   background: #999;
 }
+
