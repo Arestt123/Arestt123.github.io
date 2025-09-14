@@ -26,19 +26,7 @@ body {
   overflow: hidden;
 }
 
-@media (max-width: 700px) {
-  #gameArea {
-    width: 98vw;
-    height: 40vw;
-    min-width: 280px;
-    min-height: 180px;
-  }
-  .menu-img {
-    width: 90vw;
-    height: 60vw;
-    min-width: 180px;
-    min-height: 120px;
-  }
+
 }
 #player {
   width: 65px;
@@ -107,3 +95,4 @@ body {
     font-size: 2em;
   }
 }
+
