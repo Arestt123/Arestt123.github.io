@@ -3,22 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Geometry Dash</title>
+  <title>Aristides vs tombos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>⬛ Princesa Laura </h1>
-  <div id="gameArea">
+  <h1>ARESS BIKER</h1>
+
+  <!-- Menú de inicio -->
+<div id="menu">
+  <div class="menu-img-container">
+    <img src="fondojuego.jpg" alt="hello world" class="menu-img">
+    <div class="menu-buttons">
+      <button id="startBtn">Iniciar Juego</button>
+      <button id="scoresBtn">Ver Puntajes</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Área de juego (oculta al inicio) -->
+  <div id="gameArea" style="display:none;">
     <div id="player"></div>
   </div>
-  <p>Puntuación: <span id="score">0</span></p>
+  <p id="scorePanel" style="display:none;">Puntuación: <span id="score">0</span></p>
 
-  <!-- Controles táctiles -->
-  <div id="controls">
+  <!-- Controles táctiles (ocultos al inicio) -->
+  <div id="controls" style="display:none;">
     <button id="left">⬅️</button>
     <button id="right">➡️</button>
     <button id="jump">⏫</button>
-    
+  </div>
+
+  <!-- Panel de puntajes -->
+  <div id="scoresPanel" style="display:none;">
+    <h2>Puntajes alcanzados</h2>
+    <ul id="scoresList"></ul>
+    <button id="backBtn">Volver al menú</button>
   </div>
 
   <script src="script.js"></script>
